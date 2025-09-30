@@ -1,131 +1,105 @@
-############################
-# OS X
-############################
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-.Spotlight-V100
-.Trashes
-._*
+# Environment variables
+.env
+.env.local
+.env.production
+.env.production.local
 
+# Build outputs
+dist/
+build/
+.next/
+out/
 
-############################
-# Linux
-############################
-
-*~
-
-
-############################
-# Windows
-############################
-
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-*.cab
-*.msi
-*.msm
-*.msp
-
-
-############################
-# Packages
-############################
-
-*.7z
-*.csv
-*.dat
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.seed
-*.so
-*.swo
-*.swp
-*.swn
-*.swm
-*.out
-*.pid
-
-
-############################
-# Logs and databases
-############################
-
-.tmp
-*.log
-*.sql
+# Database
+.tmp/
+*.db
 *.sqlite
 *.sqlite3
 
+# Logs
+logs/
+*.log
 
-############################
-# Misc.
-############################
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
 
-*#
-ssl
-.idea
-nbproject
-public/uploads/*
-!public/uploads/.gitkeep
-.tsbuildinfo
-.eslintcache
+# Coverage directory used by tools like istanbul
+coverage/
 
-############################
-# Node.js
-############################
+# nyc test coverage
+.nyc_output
 
-lib-cov
-lcov.info
-pids
-logs
-results
-node_modules
-.node_history
+# Dependency directories
+jspm_packages/
 
-############################
-# Package managers
-############################
+# Optional npm cache directory
+.npm
 
-.yarn/*
-!.yarn/cache
-!.yarn/unplugged
-!.yarn/patches
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
-yarn-error.log
+# Optional REPL history
+.node_repl_history
 
-############################
-# Tests
-############################
+# Output of 'npm pack'
+*.tgz
 
-coverage
+# Yarn Integrity file
+.yarn-integrity
 
-############################
-# Strapi
-############################
+# dotenv environment variables file
+.env
 
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
 
-license.txt
-exports
-.strapi
-dist
-build
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Strapi specific
 .strapi-updater.json
-.strapi-cloud.json
+.strapi/

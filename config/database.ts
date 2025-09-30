@@ -1,7 +1,8 @@
 import path from 'path';
 
 export default ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
+  // Default to SQLite for development, PostgreSQL for production
+  const client = env('DATABASE_CLIENT', env('NODE_ENV') === 'production' ? 'postgres' : 'sqlite');
 
   const connections = {
     mysql: {
@@ -23,8 +24,9 @@ export default ({ env }) => {
       pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
     },
     postgres: {
-      connection: {
+      connection: env('DATABASE_URL') ? {
         connectionString: env('DATABASE_URL'),
+      } : {
         host: env('DATABASE_HOST', 'localhost'),
         port: env.int('DATABASE_PORT', 5432),
         database: env('DATABASE_NAME', 'strapi'),
