@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # State of Law - Strapi CMS Deployment Script
-# Server: 157.180.36.164
+# Server: 46.62.219.128
 
 set -e
 
@@ -14,7 +14,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Configuration
-SERVER_IP="157.180.36.164"  
+SERVER_IP="46.62.219.128"  
 APP_NAME="encompass-api"
 APP_DIR="/var/www/encompass-api"
 NGINX_SITES_AVAILABLE="/etc/nginx/sites-available"
