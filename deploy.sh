@@ -30,13 +30,13 @@ echo ""
 # Function to run commands on server
 run_on_server() {
     echo -e "${YELLOW}🔧 Running on server: $1${NC}"
-    ssh root@$SERVER_IP "$1"
+    ssh app@$SERVER_IP "$1"
 }
 
 # Function to copy files to server
 copy_to_server() {
     echo -e "${YELLOW}📁 Copying to server: $1 -> $2${NC}"
-    scp $1 root@$SERVER_IP:$2
+    scp $1 app@$SERVER_IP:$2
 }
 
 echo -e "${GREEN}1. Updating system packages...${NC}"
@@ -103,7 +103,7 @@ run_on_server "ufw allow 22 && ufw allow 80 && ufw allow 443 && ufw --force enab
 echo -e "${GREEN}✅ Deployment completed!${NC}"
 echo ""
 echo -e "${YELLOW}📝 Next steps:${NC}"
-echo "1. SSH into your server: ssh root@$SERVER_IP"
+echo "1. SSH into your server: ssh app@$SERVER_IP"
 echo "2. Edit environment variables: nano $APP_DIR/.env"
 echo "3. Update database credentials in .env file"
 echo "4. Restart the application: pm2 restart $APP_NAME"
