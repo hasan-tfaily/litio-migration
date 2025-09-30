@@ -59,9 +59,9 @@ run_on_server "mkdir -p $APP_DIR && chown -R www-data:www-data $APP_DIR"
 
 echo -e "${GREEN}7. Setting up PostgreSQL database...${NC}"
 run_on_server "
-sudo -u postgres psql -c \"CREATE DATABASE encompass-api;\"
+sudo -u postgres psql -c \"CREATE DATABASE \\\"encompass-api\\\";\"
 sudo -u postgres psql -c \"CREATE USER strapi_user WITH PASSWORD 'your_secure_password_here';\"
-sudo -u postgres psql -c \"GRANT ALL PRIVILEGES ON DATABASE encompass-api TO strapi_user;\"
+sudo -u postgres psql -c \"GRANT ALL PRIVILEGES ON DATABASE \\\"encompass-api\\\" TO strapi_user;\"
 sudo -u postgres psql -c \"ALTER USER strapi_user CREATEDB;\"
 "
 
