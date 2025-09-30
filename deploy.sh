@@ -40,22 +40,22 @@ copy_to_server() {
 }
 
 echo -e "${GREEN}1. Updating system packages...${NC}"
-run_on_server "apt update && apt upgrade -y"
+run_on_server "sudo apt update && sudo apt upgrade -y"
 
 echo -e "${GREEN}2. Installing Node.js 18...${NC}"
-run_on_server "curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs"
+run_on_server "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash - && sudo apt-get install -y nodejs"
 
 echo -e "${GREEN}3. Installing PostgreSQL...${NC}"
-run_on_server "apt install -y postgresql postgresql-contrib"
+run_on_server "sudo apt install -y postgresql postgresql-contrib"
 
 echo -e "${GREEN}4. Installing Nginx...${NC}"
-run_on_server "apt install -y nginx"
+run_on_server "sudo apt install -y nginx"
 
 echo -e "${GREEN}5. Installing PM2...${NC}"
-run_on_server "npm install -g pm2"
+run_on_server "sudo npm install -g pm2"
 
 echo -e "${GREEN}6. Creating application directory...${NC}"
-run_on_server "mkdir -p $APP_DIR && chown -R www-data:www-data $APP_DIR"
+run_on_server "sudo mkdir -p $APP_DIR && sudo chown -R www-data:www-data $APP_DIR"
 
 echo -e "${GREEN}7. Setting up PostgreSQL database...${NC}"
 run_on_server "
@@ -95,10 +95,10 @@ echo -e "${GREEN}12. Setting up PM2...${NC}"
 run_on_server "cd $APP_DIR && pm2 start ecosystem.config.js --env production"
 
 echo -e "${GREEN}13. Setting up Nginx...${NC}"
-run_on_server "systemctl enable nginx && systemctl start nginx"
+run_on_server "sudo systemctl enable nginx && sudo systemctl start nginx"
 
 echo -e "${GREEN}14. Configuring firewall...${NC}"
-run_on_server "ufw allow 22 && ufw allow 80 && ufw allow 443 && ufw --force enable"
+run_on_server "sudo ufw allow 22 && sudo ufw allow 80 && sudo ufw allow 443 && sudo ufw --force enable"
 
 echo -e "${GREEN}✅ Deployment completed!${NC}"
 echo ""
